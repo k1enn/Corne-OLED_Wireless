@@ -74,6 +74,24 @@
 
             label = "COPY_WHOLE_FILE_NVIM";
         };
+
+        clipboard_clear: clipboard_clear {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap_time 40>,
+                <&kp LGUI>,
+                <&macro_tap_time 40>,
+                <&kp LEFT_ALT>,
+                <&macro_press>,
+                <&kp V>,
+                <&macro_tap_time 40>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp DEL>;
+
+            label = "CLIPBOARD_CLEAR";
+        };
     };
 
     keymap {
@@ -102,9 +120,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB     &kp N1           &kp N2             &kp N3        &kp N4        &kp N5          &kp N6          &kp N7          &kp N8        &kp N9           &kp N0  &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0     &bt BT_SEL 1       &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &trans  &trans
-&kp LSHFT   &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans        &trans        &trans          &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans  &trans
+&kp TAB     &kp N1           &kp N2             &kp N3        &kp N4        &kp N5          &kp N6          &kp N7          &kp N8        &kp N9           &kp N0                 &kp BSPC
+&bt BT_CLR  &bt BT_SEL 0     &bt BT_SEL 1       &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &clipboard             &clipboard_clear
+&kp LSHFT   &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans        &trans        &trans          &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &copy_whole_file_nvim  &trans
                                                 &trans        &trans        &kp SPACE       &kp RET         &trans          &kp RALT
             >;
         };
