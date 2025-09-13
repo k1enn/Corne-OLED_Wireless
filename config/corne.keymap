@@ -14,15 +14,65 @@
         SuperU: SuperU {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_GUI &kp U>;
+            bindings =
+                <&macro_tap_time 40>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&kp U>;
+
             label = "SUPERU";
         };
 
         SuperShiftEnter: SuperShiftEnter {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_GUI &kp LEFT_SHIFT &kp ENTER>;
+            bindings =
+                <&macro_tap_time 50>,
+                <&kp LEFT_GUI>,
+                <&macro_tap_time 50>,
+                <&kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp ENTER>;
+
             label = "SUPERSHIFTENTER";
+        };
+
+        clipboard: clipboard {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap_time 40>,
+                <&kp LGUI>,
+                <&macro_tap_time 40>,
+                <&kp LEFT_ALT>,
+                <&macro_press>,
+                <&kp V>;
+
+            label = "CLIPBOARD";
+        };
+
+        copy_whole_file_nvim: copy_whole_file_nvim {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp G>,
+                <&macro_tap>,
+                <&kp G>,
+                <&macro_tap>,
+                <&kp CARET>,
+                <&macro_tap>,
+                <&kp V>,
+                <&macro_tap>,
+                <&kp LS(G)>,
+                <&macro_tap>,
+                <&kp DOLLAR>,
+                <&macro_tap_time 50>,
+                <&kp SPACE>,
+                <&macro_tap>,
+                <&kp Y>;
+
+            label = "COPY_WHOLE_FILE_NVIM";
         };
     };
 
